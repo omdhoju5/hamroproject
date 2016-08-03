@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+
+<h1> CHEQUE ENTRY FORM</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'cheque:save' %}" method="post">
+{% csrf_token %}
+<input type="text" name="cheque_name" placeholder="Enter Cheque name"><br>
+<input type="text" name="cheque_number" placeholder="Enter Cheque Number"><br>
+<input type="date" name="cheque_date"><br>
+    <input type="text" name="cheque_remark" placeholder="Enter remark"><br>
+    <input type="number" name="cheque_amount" placeholder="Enter Cheque Amount"><br>
+<input type="submit" value="Save" />
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="col-lg-6 col-lg-offset-3">
+        <h2>Add Stock Item </h2>
+    </div>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <form method="post" action="{% url 'stock:add' %}" class="col-lg-6 col-lg-offset-3" >
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="stock_name">Stock Name</label>
+            <input type="text" class="form-control" name="stock_name" placeholder="Enter Stock name here">
+            <label for="stock_identifier">Stock Identifier</label>
+            <input type="text" class="form-control" name="stock_identifier" placeholder="Enter Stock Identifier here">
+            <label for="stock_company">Stock Company</label>
+            <input type="text"  class="form-control" name="stock_company" placeholder="Enter Stock Company">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>
